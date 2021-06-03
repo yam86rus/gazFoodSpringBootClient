@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Газпром питание заказ</title>
+</head>
+<body>
+<h1>Все заказы</h1>
+<table>
+    <tr th:each=" order:${allOrders}">
+        <td th:text="${order.id}"></td>
+        <td th:text="${order.dishesId}"></td>
+        <td th:text="${order.dishesName}"></td>
+        <td th:text="${order.cafeteriaId}"></td>
+        <td th:text="${order.cafeteriaName}"></td>
+        <td th:text="${order.price}"></td>
+        <td th:text="${order.count}"></td>
+        <td th:text="${order.data}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

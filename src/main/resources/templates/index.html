@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Газпром питание заказ</title>
+</head>
+<body>
+<h1>Газпром питание стол заказов</h1>
+
+<h1>Выберите столовую</h1>
+<br>
+<a href="/addOrder">Add order</a>
+<br>
+<a href="/allOrders">All orders</a>
+<br>
+<a href="/showDetails">Show details</a>
+<br>
+<form th:action="@{/showDetails}" method="post">
+
+    <select class="form-control" id="task" name="task">
+        <option value="">Выберите столовую</option>
+        <option th:each="cafe : ${allCafeterias}"
+                th:value="${cafe.id}"
+                th:text="${cafe.name}">
+        </option>
+    </select>
+    <button type="submit">Показать</button>
+</form>
+
+</body>
+</html>

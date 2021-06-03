@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Детали заказа</title>
+</head>
+<body>
+<h1>Столовая с ID = <span th:utext="${task}"/></h1>
+
+<table>
+    <thead>
+    <tr>
+        <td>menu.id</td>
+        <td>menu.price</td>
+        <td>menu.dish.name</td>
+        <td>menu.menuList.name</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="menu: ${AllMenu}">
+        <td th:utext="${menu.id}"></td>
+        <td th:utext="${menu.price}"></td>
+        <td th:utext="${menu.dish.name}"></td>
+        <td th:utext="${menu.menuList.name}"></td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<table>
+    <thead>
+    <tr>
+        <td>what is it?</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="r: ${list}">
+        <td th:utext="${r.substring(1,r.length()-1)}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Газпром питание заказ</title>
+</head>
+<body>
+<h1>Форма заказа</h1>
+
+<div>
+    <form th:action="@{/saveOrder}" th:object="${orders}" method="post">
+        <table>
+            <thead>
+            <tr>
+                <td>Название блюда</td>
+                <td>Стоимость блюда</td>
+                <td>Укажите количество</td>
+                <td>Укажите название блюда</td>
+            </tr>
+            </thead>
+            <tr th:each="menu: ${allMenu}">
+                <td th:text="${menu.dish.name}"></td>
+                <td th:text="${menu.price}"></td>
+                <td>
+                    <input type="number" th:field="*{count}">
+                </td>
+                <td><input type="text" th:field="*{dishesName}"></td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit">Сохранить</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
